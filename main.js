@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const http = require('http');
 const express = require('express');
 const app = express();
@@ -10,9 +9,6 @@ app.listen(process.env.PORT);
 setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
-=======
-require("dotenv").config();
->>>>>>> 7ea92da584255bfebeff3f97ba5c205dbc7ea42b
 
 const [Discord, Settings, fs] = [require("discord.js"), require("./settings.json"), require("fs")];
 
@@ -58,10 +54,7 @@ Client.on("messageDelete", function (message) {
 
 Client.on("message", function (message) {
     if (Settings.LogMessages == true) {
-<<<<<<< HEAD
       let r;
-=======
->>>>>>> 7ea92da584255bfebeff3f97ba5c205dbc7ea42b
         try {
             r = "!ERROR 0x01!"
             if (message.channel.type == "text") {
@@ -78,28 +71,14 @@ Client.on("message", function (message) {
     }
 
     if ((message.author.id != Settings.Author) || (!message.content.startsWith(Settings.Prefix))) { return };
-<<<<<<< HEAD
   try {
-=======
-
->>>>>>> 7ea92da584255bfebeff3f97ba5c205dbc7ea42b
     const args = message.content.slice(Settings.Prefix.length).trim().split(/ +/g);
     const category = args.shift().toLowerCase();
     const command = args.shift().toLowerCase();
 
-<<<<<<< HEAD
     let mod = require(`./commands/${category}/${command}`);
     if (mod) { mod.main(Client, message, args); }
     } catch (e) { console.log(e) };
 });
 
 Client.login(Settings.Token);
-=======
-    try {
-        let mod = require(`./commands/${category}/${command}`);
-        if (mod) { mod.main(Client, message, args); }
-    } catch (e) { console.log(e) };
-});
-
-Client.login();
->>>>>>> 7ea92da584255bfebeff3f97ba5c205dbc7ea42b
