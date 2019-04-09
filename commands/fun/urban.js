@@ -18,6 +18,7 @@ exports.main = function (Client, message, args) {
             }
         })
     } else if (args[0] == "term") {
+        args.shift();
         args = args.join(" ");
 
         urban.term(args, function (error, entries) {
