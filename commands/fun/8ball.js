@@ -20,3 +20,12 @@ exports.main = function (Client, message, args) {
     message.channel.send({embed});
     message.delete().catch();
 }
+
+exports.help = {
+    args: false,
+    category: "fun",
+    name: "8ball",
+    description: "Asks the 8ball a question",
+    expected: "<prefix>fun 8ball <question>?output=<question><response>",
+    example: ",fun 8ball Is Sheith Cannon??"
+}

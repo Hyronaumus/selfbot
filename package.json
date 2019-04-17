@@ -21,15 +21,16 @@
   },
   "homepage": "https://github.com/Hyronaumus/selfbot",
   "dependencies": {
+    "canvas": "^2.4.1",
     "discord.js": "^11.2.1",
     "express": "^4.15.5",
     "fs": "^0.0.2",
+    "http": "^0.0.0",
     "js-beautify": "^1.8.9",
     "moment": "^2.18.1",
     "request": "^2.88.0",
     "superagent": "^5.0.2",
     "urban-dictionary": "^2.2.1",
-    "xml2js": "^0.4.19",
-    "http":"^0.0.0"
+    "xml2js": "^0.4.19"
   }
 }

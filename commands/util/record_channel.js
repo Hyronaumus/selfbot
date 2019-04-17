@@ -23,3 +23,12 @@ exports.main = function (Client, message, args) {
     } catch (e) { console.log(e) };
 
 }
+
+exports.help = {
+    args: true,
+    category: "util",
+    name: "record_channel",
+    description: "Records information about channel and stores it in a JSON file. For internal use only.",
+    expected: "<prefix>util record_channel <name>?output=Successfully recorded channel as <name>.",
+    example: ",util record_channel command_center"
+}

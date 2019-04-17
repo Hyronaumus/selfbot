@@ -63,6 +63,7 @@ const reverseMorse = {
     "-.- " : "k",
     ".-.. " : "l",
     "-- " : "m",
+    "-." : "n",
     "--- " : "o",
     ".--. " : "p",
     "--.- " : "q",
@@ -121,4 +122,13 @@ exports.main = function (Client, message, args) {
     message.delete().catch();
     message.channel.send(returnString);
 }
+}
+
+exports.help = {
+    args: true,
+    category: "fun",
+    name: "morsify",
+    description: "Converts text to morse code in text form and vice versa.",
+    expected: "<prefix>fun <alias> <to:1||from:2>?output=<1:morse-code>||<2:text>",
+    example: ",fun morsify to knives are cool || ,fun morsify from -.- -. .. ...- . ... / .- .-. . / -.-. --- --- .-.."
 }

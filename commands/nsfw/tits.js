@@ -12,3 +12,12 @@ exports.main = function (Client, message, args) {
         });
     } catch (e) { console.log(e) };
 }
+
+exports.help = {
+    args: false,
+    category: "nsfw",
+    name: "tits",
+    description: "Attempts to retrieve an image from oboobs.ru",
+    expected: "<prefix>nsfw <alias> <tags>?output=(image)",
+    example: ",nsfw tits"
+}

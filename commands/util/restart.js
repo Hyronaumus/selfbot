@@ -20,3 +20,12 @@ exports.main = function (Client, message, args) {
       }, 2000);
     })
 }
+
+exports.help = {
+  args: false,
+  category: "util",
+  name: "restart",
+  description: "Destroys the process and logs back in. Pseudorestart.",
+  expected: "<prefix>util restart",
+  example: ",util restart"
+}

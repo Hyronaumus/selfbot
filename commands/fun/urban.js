@@ -38,3 +38,13 @@ exports.main = function (Client, message, args) {
         })
     }
 }
+
+exports.help = {
+    args: false,
+    category: "fun",
+    name: "urban",
+    description: "Attempts to retrieve a definition from urban-dictionary.",
+    expected: "<prefix>fun <alias> <arg0:random||term> <term>?output=(EMBED)<definition>",
+    example: ",fun urban random || ,fun urban term post nut",
+    aliases: ["ud"]
+  }

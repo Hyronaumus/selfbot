@@ -6,45 +6,45 @@
 const { js_beautify } = require("js-beautify");
 
 console.oldLog = console.log;
-console.log = function(value) {
+console.log = function (value) {
     console.oldLog(value);
     return value;
 };
 
 const reduceIndentation = (string) => {
-  let whitespace = string.match(/^(\s+)/);
-  if (!whitespace) return string;
+    let whitespace = string.match(/^(\s+)/);
+    if (!whitespace) return string;
 
-  whitespace = whitespace[0].replace("\n", "");
-  return string.split("\n").map(line => line.replace(whitespace, "")).join("\n");
+    whitespace = whitespace[0].replace("\n", "");
+    return string.split("\n").map(line => line.replace(whitespace, "")).join("\n");
 };
 
 const format = async (msg) => {
-  const beautifiedCode = js_beautify(msg, { indent_size: 2, brace_style: "collapse", jslint_happy: true });
-  const str = await reduceIndentation(beautifiedCode);
-  return (`${"```js"}\n${str}\n${"```"}`);
+    const beautifiedCode = js_beautify(msg, { indent_size: 2, brace_style: "collapse", jslint_happy: true });
+    const str = await reduceIndentation(beautifiedCode);
+    return (`${"```js"}\n${str}\n${"```"}`);
 };
 
-const clean = function(text) {
-  if (typeof(text) === "string")
-    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-  else
-      return text;
+const clean = function (text) {
+    if (typeof (text) === "string")
+        return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+    else
+        return text;
 }
 
-const fix = async function(m, message) {
+const fix = async function (m, message) {
     let res;
     try {
-        await format(message).then(function(r) {
-            m.channel.send(":gear: **Input**\n"+r);
+        await format(message).then(function (r) {
+            m.channel.send(":gear: **Input**\n" + r);
         })
-    } catch(error) {
+    } catch (error) {
         m.channel.send(error);
-    }   
-} 
- 
- 
-exports.main = function(client, message, args) {
+    }
+}
+
+
+exports.main = function (client, message, args) {
     try {
         args = args.join(" ");
         let evaluated = eval(args);
@@ -58,4 +58,14 @@ exports.main = function(client, message, args) {
     } catch (error) {
         message.channel.send(`:x: **Error!**\n\`\`\`x1\n${clean(error)}\n\`\`\``);
     };
+}
+
+exports.help = {
+    args: true,
+    category: "util",
+    name: "run",
+    description: "Executes Node.js",
+    expected: "<prefix>util <alias> <Node.js>?output=Server Output",
+    example: ",util run this",
+    aliases: ["exec", "nodejs", "server", "java", "javascript", "js"]
 }

@@ -65,3 +65,13 @@ exports.main = function (Client, message, args) {
         } catch (e) { console.log(e) };
     }
 }
+
+exports.help = {
+    args: false,
+    category: "nsfw",
+    name: "rule34",
+    description: "Attempts to retrieve an image from rule34.xxx with tags",
+    expected: "<prefix>nsfw <alias> <tags>?output=(image)",
+    example: ",nsfw rule34 math homework",
+    aliases: ["hentai", "r34"]
+}

@@ -20,3 +20,12 @@ exports.main = function (Client, message, args) {
   
 
 };
+
+exports.help = {
+  args: false,
+  category: "fun",
+  name: "joke",
+  description: "Retrieves a joke from sv443.net",
+  expected: "<prefix>fun joke <category:dark||religious||political>?output=<joke>",
+  example: ",fun joke dark"
+}

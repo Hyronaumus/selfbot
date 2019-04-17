@@ -46,3 +46,12 @@ exports.main = function (Client, message, args) {
     })
   } catch (e) { console.log(e) }
 };
+
+exports.help = {
+  args: false,
+  category: "fun",
+  name: "reddit",
+  description: "Attempts to retrieve a post from specified subreddit",
+  expected: "<prefix>fun reddit <subreddit>?output=(URL/IMAGE)<post>",
+  example: ",fun reddit || ,fun reddit dogs"
+}

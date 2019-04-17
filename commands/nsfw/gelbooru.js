@@ -65,3 +65,13 @@ exports.main = function (Client, message, args) {
         } catch (e) { console.log(e) };
     }
 }
+
+exports.help = {
+    args: false,
+    category: "nsfw",
+    name: "gelbooru",
+    description: "Attempts to retrieve an image from gelbooru with tags",
+    expected: "<prefix>nsfw <alias> <tags>?output=(image)",
+    example: ",nsfw gelbooru math homework",
+    aliases: ["gel"]
+}

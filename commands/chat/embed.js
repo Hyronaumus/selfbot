@@ -23,3 +23,12 @@ exports.main = function (Client, message, args) {
   
   message.delete().catch();
 }
+
+exports.help = {
+  args: true,
+  category: "chat",
+  name: "embed",
+  description: "Creates and sends a simple embed message.",
+  expected: "<prefix>chat embed <arg0:t:\"title\"><arg1:d:\"description\"><arg2:c:\"color\">?output=(EMBED)<embed>",
+  example: ",chat embed t:\"Title\" d:\"Description\" c:\"Color\""
+}

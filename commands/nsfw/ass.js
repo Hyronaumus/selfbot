@@ -12,3 +12,12 @@ exports.main = function (Client, message, args) {
         });
     } catch (e) { console.log(e) };
 }
+
+exports.help = {
+    args: false,
+    category: "nsfw",
+    name: "ass",
+    description: "Attempts to retrieve an image from obutts.ru",
+    expected: "<prefix>nsfw ass?output=(image)",
+    example: ",nsfw ass"
+}

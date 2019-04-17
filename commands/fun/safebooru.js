@@ -64,3 +64,13 @@ exports.main = function (Client, message, args) {
         } catch (e) { console.log(e) };
     }
 }
+
+exports.help = {
+    args: false,
+    category: "fun",
+    name: "safe",
+    description: "Attempts to retrieve an image from safebooru",
+    expected: "<prefix>fun <alias> <tags>?output=(IMAGE)<post>",
+    example: ",fun safebooru || ,fun safe dogs",
+    aliases: ["safe", "sfw"]
+  }

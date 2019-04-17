@@ -14,3 +14,12 @@ exports.main = function (Client, message, args) {
         console.log(e); return;
     });
 }
+
+exports.help = {
+    args: false,
+    category: "util",
+    name: "log",
+    description: "Toggles/Sets internal logging service",
+    expected: "<prefix>util log <boolean>",
+    example: ",util log || ,util log <boolean>"
+}

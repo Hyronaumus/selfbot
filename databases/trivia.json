@@ -1,0 +1,62 @@
+[
+	{
+		"question": "What colour is the sky?",
+        "answers": ["blue"],
+        "points": 10,
+        "time": 5
+	},
+	{
+		"question": "How many letters are there in the alphabet?",
+		"answers": ["26", "twenty-six", "twenty six", "twentysix"],
+        "points": 10,
+        "time": 5
+    },
+    {
+        "question": "Does drew need a therapist?",
+        "answers": ["yes", "yup", "mhm", "sure", "absolutely"],
+        "points": 10,
+        "time": 5
+    },
+    {
+        "question": "What does the phrase \"14 88\" mean?",
+        "answers": ["we must secure the existence of our people and a future for white children", "white nationalism", "nazism"],
+        "points": 100,
+        "time": 10
+    },
+    {
+        "question": "You open the cyilinder. You load a bullet in. You proceed to spin the cyilinder, close it, and place the gun to your temple. You pull the trigger.",
+        "answers": ["russian-roulette", "russian roulette"],
+        "points": 10,
+        "time": 10
+    },
+    {
+        "question": "RUBY",
+        "answers": ["LEVELLED UP"],
+        "points": 1008,
+        "time": 10
+    },
+    {
+        "question": "What's the biggest island in the world?",
+        "answers": ["greenland"],
+        "points": 100,
+        "time": 15
+    },
+    {
+        "question": "Are you aware there is a rat on your shoulder?",
+        "answers": ["yes"],
+        "points": 10,
+        "time": 3
+    },
+    {
+        "question": "Is it okay to be gay?",
+        "answers": ["no", "negative", "nope", "not at all", "absolutely not", "positively negative"],
+        "points": 10,
+        "time": 3
+    },
+    {
+        "question": "14",
+        "answers": ["88"],
+        "points": 1000,
+        "time": 2
+    }
+]

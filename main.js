@@ -2,21 +2,30 @@ const http = require('http');
 const express = require('express');
 const app = express();
 app.get("/", (request, response) => {
-  console.log(Date.now() + " Ping Received");
-  response.sendStatus(200);
+    console.log(Date.now() + " Ping Received");
+    response.sendStatus(200);
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+    http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
 
 const [Discord, Settings, fs] = [require("discord.js"), require("./settings.json"), require("fs")];
 
 const Client = new Discord.Client();
+Client.commands = new Discord.Collection();
 
 Client.on("ready", function () {
     console.log(`Ready to serve on ${Client.guilds.size} servers for ${Client.users.size} users.`);
-
+    const commandFiles = fs.readdirSync('./commands')
+    let comm = [];
+    for (let i of commandFiles) {
+        let catComm = fs.readdirSync(`./commands/${i}`).filter(file => file.endsWith(".js"));
+        //console.log(catComm)
+        for (let c of catComm) {
+            Client.commands.set(c.substr(0, c.length - 3), require(`./commands/${i}/${c}`))
+        }
+    }
 });
 
 Client.on("messageDelete", function (message) {
@@ -54,7 +63,7 @@ Client.on("messageDelete", function (message) {
 
 Client.on("message", function (message) {
     if (Settings.LogMessages == true) {
-      let r;
+        let r;
         try {
             r = "!ERROR 0x01!"
             if (message.channel.type == "text") {
@@ -71,13 +80,15 @@ Client.on("message", function (message) {
     }
 
     if ((message.author.id != Settings.Author) || (!message.content.startsWith(Settings.Prefix))) { return };
-  try {
-    const args = message.content.slice(Settings.Prefix.length).trim().split(/ +/g);
-    const category = args.shift().toLowerCase();
-    const command = args.shift().toLowerCase();
+    try {
+        const args = message.content.slice(Settings.Prefix.length).trim().split(/ +/g);
+        const category = args.shift().toLowerCase();
+        const command = args.shift().toLowerCase();
 
-    let mod = require(`./commands/${category}/${command}`);
-    if (mod) { mod.main(Client, message, args); }
+        const mod = Client.commands.get(command) || Client.commands.find(c => c.help && c.help.aliases && c.help.aliases.includes(command));
+        if (!mod) return;
+
+        if (mod) { mod.main(Client, message, args); }
     } catch (e) { console.log(e) };
 });
 

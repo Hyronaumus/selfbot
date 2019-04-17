@@ -11,3 +11,13 @@ exports.main = function (Client, message, args) {
         })
         .catch(console.error);
 }
+
+exports.help = {
+  args: true,
+  category: "util",
+  name: "prune",
+  description: "Deletes specified amount of messages",
+  expected: "<prefix>util <alias> <amountToDelete>",
+  example: ",util prune 5",
+  aliases: ["bulkdelete", "delete"]
+}
